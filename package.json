@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-hw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Angelina-web/nodejs-hw.git"
+  },
+  "keywords": [],
+  "author": "Anhelina <bogdanangelina@gmail.com>",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Angelina-web/nodejs-hw/issues"
+  },
+  "homepage": "https://github.com/Angelina-web/nodejs-hw#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "eslint": "^9.36.0",
+    "globals": "^16.4.0",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "pino-http": "^10.5.0"
+  }
+}
