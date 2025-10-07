@@ -1,5 +1,4 @@
 import { Router } from 'express';
-
 import {
   getAllNotes,
   getNoteById,
@@ -14,17 +13,14 @@ import {
   updateNoteSchema,
   getAllNotesSchema,
 } from '../validations/notesValidation.js';
+import { authenticate } from '../middleware/authenticate.js';
 
-const notesRouters = Router();
+const notesRouter = Router();
+notesRouter.use('/notes', authenticate);
+notesRouter.get('/notes', celebrate(getAllNotesSchema), getAllNotes);
+notesRouter.get('/notes/:noteId', celebrate(noteIdSchema), getNoteById);
+notesRouter.post('/notes', celebrate(createNoteSchema), createNote);
+notesRouter.delete('/notes/:noteId', celebrate(noteIdSchema), deleteNote);
+notesRouter.patch('/notes/:noteId', celebrate(updateNoteSchema), updateNote);
 
-notesRouters.get('/notes', celebrate(getAllNotesSchema), getAllNotes);
-
-notesRouters.get('/notes/:noteId', celebrate(noteIdSchema), getNoteById);
-
-notesRouters.post('/notes', celebrate(createNoteSchema), createNote);
-
-notesRouters.delete('/notes/:noteId', celebrate(noteIdSchema), deleteNote);
-
-notesRouters.patch('/notes/:noteId', celebrate(updateNoteSchema), updateNote);
-
-export default notesRouters;
+export default notesRouter;
